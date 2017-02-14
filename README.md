@@ -2,27 +2,37 @@
 
 ในการติดตั้ง Web Server ในปัจจุบันสามารถทำได้หลากหลายวิธี ไม่ว่าจะเป็นการ
 เว็บเซิร์ฟเวอร์ที่นิยมใช้งานในปัจจุบัน อาทิ
+
 - Apache HTTP เหมาะสำหรับใช้เขียนภาษา PHP
 - Internet Information Services (IIS) เหมาะสำหรับใช้เขียนภาษา ASP.NET
 - Apache Tomcat เหมาะสำหรับใช้เขียนภาษา Servlet, JSP ที่พัฒนาจากภาษา JAVA
+
 ส่วนเว็บเซิร์ฟเวอร์แพ็กเกจที่นิยมใช้งาน อาทิ
+
 - AppServ
 - XAMPP
 - WAMP
 - easyPHP
 LAMP ย่อมาจาก Linux, Apache, MySQL, PHP
 โดยขั้นตอนการติดตั้ง LAMP Server ด้วยตนเองมีขั้นตอนดังต่อไปนี้
---STEP1: ติดตั้ง Apache HTTPd 
-1. ติดตั้ง Apache on CentOS 7
+
+ติดตั้ง Apache HTTPd 
+
+ ติดตั้ง Apache on CentOS 7
 yum install -y httpd
-2. สต๊าทบริการและตั้งค่าให้ทำงานตอนบู๊ตระบบ
+
+ สต๊าทบริการและตั้งค่าให้ทำงานตอนบู๊ตระบบ
 systemctl start httpd
 systemctl enable httpd
-3. กำหนดให้ apache สามารถใช้งานผ่าน firewall ได้ (กรณีเปิดใช้งาน firewalld)
+
+
+กำหนดให้ apache สามารถใช้งานผ่าน firewall ได้ (กรณีเปิดใช้งาน firewalld)
 firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --permanent --zone=public --add-service=https
 firewall-cmd --reload
-4. ทดสอบเว็บเซิฟร์เวอร์จากเครื่องลูกข่าย
+
+
+ ทดสอบเว็บเซิฟร์เวอร์จากเครื่องลูกข่าย
 http://IP_Address/
 เช่น
 http://172.16.137.62/
